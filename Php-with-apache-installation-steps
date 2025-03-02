@@ -138,6 +138,13 @@ GRANT ALL PRIVILEGES ON DATABASE carrental TO carrentaluser;
 \q
 exit
 
+##### Use below command to take postgres db backup
+pg_dump -U carrentaluser -h localhost -d carrental > /tmp/carrental_backup.sql
+#Note- Used Ip address of servers where database is configured instead of localhost
+
+### restore backup
+##First create database then logut & restore 
+psql -U postgres -d carrental < carrental_backup.sql
 
 npm install -g pm2
 pm2 start server.js --name rental-api
