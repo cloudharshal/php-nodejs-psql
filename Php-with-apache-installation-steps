@@ -1,10 +1,3 @@
-Php with apache installation -->
-=====================================
-apt update && apt install php8.2 libapache2-mod-php8.2 && systemctl restart apache2
-
-a2enmod php8.0 
-( can use any version )
-
 PHP installation->
 -------------------
 
@@ -66,7 +59,7 @@ sudo apt-get autoremove
 ==================================================
 #### https://www.digitalocean.com/community/tutorials/apache-basics-installation-and-configuration-troubleshooting
 
-## Rake all certificate files in server , create ssl folder in /etc/apache2/ & cp all ssl certificates into it.
+## Take all certificate files in server , create ssl folder in /etc/apache2/ & cp all ssl certificates into it.
 
 cd /etc/apache2/site-available 
 vi default-ssl.conf , 
@@ -115,7 +108,7 @@ Allow from all
 
 
 ========================================================
-For No SSL default file 
+For Without SSL default file 
 
 cd /etc/apache2/site-available 
 vi 000-default.conf
