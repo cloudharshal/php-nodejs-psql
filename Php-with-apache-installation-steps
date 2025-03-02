@@ -120,7 +120,14 @@ car-rental-api/
 Run the Project
 npx nodemon server.js
 
-
+npm install -g pm2
+pm2 start server.js --name rental-api
+pm2 stop rental-api
+pm2 logs rental-api
+pm2 startup
+pm2 save
+pm2 list
+pm2 stop rental-api
 
 =========================================
 postgresql
@@ -145,10 +152,3 @@ pg_dump -U carrentaluser -h localhost -d carrental > /tmp/carrental_backup.sql
 ### restore backup
 ##First create database then logut & restore 
 psql -U postgres -d carrental < carrental_backup.sql
-
-npm install -g pm2
-pm2 start server.js --name rental-api
-pm2 startup
-pm2 save
-pm2 list
-pm2 stop rental-api
