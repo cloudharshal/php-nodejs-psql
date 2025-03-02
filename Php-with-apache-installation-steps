@@ -145,6 +145,19 @@ GRANT ALL PRIVILEGES ON DATABASE carrental TO carrentaluser;
 \q
 exit
 
+###Delete 3 entries from database table
+DELETE FROM cars WHERE id IN (LAST_ID, LAST_ID-1, LAST_ID-2);
+SELECT * FROM cars ORDER BY id DESC LIMIT 3;
+DELETE FROM cars WHERE id IN (12, 11, 10);
+DELETE FROM cars WHERE name IN ('Audi A4', 'Nissan Altima', 'Jeep Wrangler');
+
+### Add 3 entries to database table
+INSERT INTO cars (name, model, "pricePerDay", "imageUrl") VALUES
+('Audi A4', '2022', 95, 'https://example.com/audi-a4.jpg'),
+('Nissan Altima', '2023', 85, 'https://example.com/nissan-altima.jpg'),
+('Jeep Wrangler', '2021', 110, 'https://example.com/jeep-wrangler.jpg');
+
+
 ##### Use below command to take postgres db backup
 pg_dump -U carrentaluser -h localhost -d carrental > /tmp/carrental_backup.sql
 #Note- Used Ip address of servers where database is configured instead of localhost
