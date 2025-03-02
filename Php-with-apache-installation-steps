@@ -73,3 +73,75 @@ Uninstallation of php from ubuntu-->
 apt-get purge php8.*
 sudo apt-get autoclean
 sudo apt-get autoremove
+
+
+
+
+==========================================
+
+
+Installation steps
+=======================
+PHP:
+------
+
+
+nodejs installation steps
+sudo apt update
+sudo apt install nodejs npm -y
+node -v
+npm -v
+
+mkdir car-rental-api && cd car-rental-api
+npm init -y
+npm install express mongoose dotenv bcryptjs jsonwebtoken cors body-parser
+npm install --save-dev nodemon
+
+Create Required Files
+car-rental-api/
+│── node_modules/
+│── .env
+│── server.js
+│── config/
+│   └── db.js
+│── models/
+│   ├── User.js
+│   ├── Car.js
+│   └── Booking.js
+│── routes/
+│   ├── auth.js
+│   ├── cars.js
+│   ├── bookings.js
+│── middleware/
+│   └── authMiddleware.js
+│── package.json
+
+
+Run the Project
+npx nodemon server.js
+
+
+
+=========================================
+postgresql
+
+sudo apt install postgresql postgresql-contrib -y
+sudo systemctl start postgresql
+sudo systemctl enable postgresql
+
+
+sudo -i -u postgres
+psql
+CREATE DATABASE carrental;
+CREATE USER carrentaluser WITH ENCRYPTED PASSWORD 'hello';
+GRANT ALL PRIVILEGES ON DATABASE carrental TO carrentaluser;
+\q
+exit
+
+
+npm install -g pm2
+pm2 start server.js --name rental-api
+pm2 startup
+pm2 save
+pm2 list
+pm2 stop rental-api
