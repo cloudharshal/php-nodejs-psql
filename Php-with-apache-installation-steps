@@ -1,0 +1,75 @@
+Php with apache installation -->
+=====================================
+# install software-properties-common
+ apt install software-properties-common
+
+#we can directly install latest version from below comd-
+ add-apt-repository ppa:ondrej/php
+
+dpkg -l | grep php | tee packages.txt
+
+sudo apt install php8.2-{libapache2-mod,cli,fpm,curl,mysqlnd,gd,opcache,zip,intl,common,bcmath,imagick,xmlrpc,readline,memcached,redis,mbstring,apcu,xml,dom,memcache,pgsql}
+
+
+OR
+----
+apt update && apt install php8.2 libapache2-mod-php8.2 && systemctl restart apache2
+
+a2enmod php8.0 
+( can use any version )
+
+PHP installation->
+-------------------
+
+sudo apt update
+sudo apt upgrade
+sudo add-apt-repository ppa:ondrej/php
+sudo apt update
+sudo apt install -y php7.2
+sudo systemctl restart apache2.service
+
+PHP Extensions:-
+--------------------
+sudo apt install -y libapache2-mod-php8.2 libapache2-mod-php
+sudo apt install -y php8.1-curl
+sudo apt install -y php8.1-xml
+sudo apt install -y php8.1-gd
+sudo apt install -y php8.1-pgsql
+sudo apt install -y php8.1-sybase
+sudo apt install -y php8.1-mbstring
+sudo apt install -y php8.1-cli
+sudo apt install -y php8.1-common
+sudo apt install -y php8.1-json
+sudo apt install -y php8.1-opcache
+sudo apt install -y php8.1-readline
+sudo apt install -y php8.2-zip
+sudo apt install -y php8.2-fileinfo
+sudo systemctl restart apache2.service
+php --version
+
+sudo apt install -y libapache2-mod-php8.2 libapache2-mod-php php8.2-curl php8.2-xml php8.2-gd php8.2-pgsql php8.2-sybase php8.2-mbstring php8.2-cli php8.2-common php8.2-opcache php8.2-readline php8.2-zip php8.2-common
+sudo systemctl restart apache2.service
+
+ a2ensite 000-default.conf && a2ensite default-ssl.conf
+
+ a2enmod rewrite
+
+ a2enmod ssl
+
+ systemctl restart apache2.service
+
+#### If error comes hit 
+ sudo apache2ctl configtest 
+
+To switch php version->
+========================
+
+a2dismod php8.1
+a2enmod  php7.3
+
+Uninstallation of php from ubuntu-->
+=========================================
+
+apt-get purge php8.*
+sudo apt-get autoclean
+sudo apt-get autoremove
