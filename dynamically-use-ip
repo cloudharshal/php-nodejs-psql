@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Get the private IP address
+PRIVATE_IP=$(hostname -I | awk '{print $1}')
+
+# Get the public IP address (if available)
+PUBLIC_IP=$(curl -s ifconfig.me || curl -s http://checkip.amazonaws.com)
+
+# Use private IP by default, fallback to public IP if available
+DB_HOST=${PRIVATE_IP:-$PUBLIC_IP}
+
+# Update .env file
+sed -i "s/^DB_HOST=.*/DB_HOST=$DB_HOST/" .env
+
+echo "Updated .env file with DB_HOST=$DB_HOST"
