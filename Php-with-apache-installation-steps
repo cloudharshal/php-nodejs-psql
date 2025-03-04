@@ -143,18 +143,17 @@ systemctl status apache2.service
 
 Nodejs Installation steps
 ===========================
-
-
 nodejs installation steps
+
 sudo apt update
 sudo apt install nodejs npm -y
 node -v
 npm -v
 
-mkdir car-rental-api && cd car-rental-api
-npm init -y
-npm install express mongoose dotenv bcryptjs jsonwebtoken cors body-parser
-npm install --save-dev nodemon
+sudo mkdir car-rental-api && cd car-rental-api
+sudo npm init -y
+sudo npm install express mongoose dotenv bcryptjs jsonwebtoken cors body-parser
+sudo npm install --save-dev nodemon
 
 Create Required Files
 car-rental-api/
