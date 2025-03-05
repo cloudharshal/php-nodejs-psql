@@ -215,6 +215,8 @@ INSERT INTO cars (name, model, "pricePerDay", "imageUrl") VALUES
 ('Nissan Altima', '2023', 85, 'https://example.com/nissan-altima.jpg'),
 ('Jeep Wrangler', '2021', 110, 'https://example.com/jeep-wrangler.jpg');
 
+SELECT * FROM cars;
+
 
 ##### Use below command to take postgres db backup
 pg_dump -U carrentaluser -h localhost -d carrental > /tmp/carrental_backup.sql
